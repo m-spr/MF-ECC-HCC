@@ -16,12 +16,10 @@ Instead of storing ECC check-bits in memory, we generate them **on the fly** wit
 - **Robust:** maintains accuracy under **~0.12–0.15 fault probability** before >5% drop; ≥12× better than prior art in that metric. (Table II, p. 6) :contentReference[oaicite:6]{index=6}  
 - **Scales:** memory growth **O(log₂D)** vs. baseline ECC **O(D)**. (Fig. 7, p. 6) :contentReference[oaicite:7]{index=7}
 
-> This repo mirrors the structure and clarity of the companion CED-HDC project page. :contentReference[oaicite:8]{index=8}
 
 ---
 
 ## Repository layout
-- `python/` — training with TorchHD, offline processing (generate indices, reorder CHVs, auto-emit HDL), fault injection + plots.
-- `hardware/hdl/` — VHDL for CBG (`cbg_popcounter.vhd`), trigger index ROM, ECC decoder, CHV memory wrapper, and QHV rewiring.
-- `hardware/fpga/` — scripts/projects for PYNQ-Z2 (Vivado 2022.2).
+- `python/` —  Offline processing (generate indices, reorder CHVs, auto-emit HDL).
+- `hardware/hdl/` — VHDL codes including: trigger index ROM, ECC decoder, CHV memory wrapper, and QHV rewiring.
 - `images/` — figures reproduced from experiments.
