@@ -4,8 +4,13 @@ Memory-Free Error Correction for Hyperdimensional Computing (HDC) Edge Accelerat
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#license)
 [![HDC](https://img.shields.io/badge/Topic-HDC-blue.svg)](#)
 
+Brain-inspired **Hyperdimensional Computing (HDC)** has gained traction as an efficient and lightweight machine learning paradigm. With advantages like **one-shot learning** and **resource efficiency**, HDC is well-suited for **edge devices** with limited computational resources.  
+
+While HDC inherently exhibits **fault tolerance**, **soft errors in associative memory** can degrade system performance—especially in **safety-critical applications** where reliability is paramount. Traditional **Error-Correcting Codes (ECC)** are commonly employed to mitigate such faults, but their **high storage overhead** poses challenges for edge deployments.  
+
+### **Our Contribution** 
 **MF-ECC** is a lightweight, memory-free error correction technique for HDC classifiers.  
-Instead of storing ECC check-bits in memory, we generate them **on the fly** with a tiny logic block and a compact list of **trigger indices** that mark when the check-bit value changes across dimensions. This removes check-bit memory, avoids faults in that region, and scales logarithmically with the hypervector dimension. See the block diagram in the paper’s Fig. 4 (page 5). :contentReference[oaicite:2]{index=2}
+Instead of storing ECC check-bits in memory, we generate them **on the fly** with a tiny logic block and a compact list of **trigger indices** that mark when the check-bit value changes across dimensions. This removes check-bit memory, avoids faults in that region, and scales logarithmically with the hypervector dimension.
 
 <p align="center"><img src="images/overview.png" width="780" alt="System overview"></p>
 
