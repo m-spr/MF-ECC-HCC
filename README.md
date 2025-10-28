@@ -12,13 +12,13 @@ While HDC inherently exhibits **fault tolerance**, **soft errors in associative 
 **MF-ECC** is a lightweight, memory-free error correction technique for HDC classifiers.  
 Instead of storing ECC check-bits in memory, we generate them **on the fly** with a tiny logic block and a compact list of **trigger indices** that mark when the check-bit value changes across dimensions. This removes check-bit memory, avoids faults in that region, and scales logarithmically with the hypervector dimension.
 
-<p align="center"><img src="images/overall.png" alt="System overview"></p>
+<p align="center"><img src="pics/overall.png" alt="System overview"></p>
 ---
 
 ## **Hardware Overview**  
 
 The following figure presents Memory-Free Error Correction for Hyperdimensional Computing Edge Accelerators within the HDC accelerator.  
-<p align="center"><img src="images/hardware.png" alt="System overview"></p>
+<p align="center"><img src="pics/hardware.png" alt="System overview"></p>
 
 ---
 ## **Getting Started**  
@@ -48,4 +48,4 @@ If you find this work useful, please cite the following paper:
 ## Repository layout
 - `python/` —  Offline processing (generate indices, reorder CHVs, auto-emit HDL).
 - `hardware/` — VHDL codes including: trigger index ROM, ECC decoder, CHV memory wrapper, and QHV rewiring.
-- `images/` — figures reproduced from experiments.
+- `pics/` — figures reproduced from experiments.
