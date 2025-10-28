@@ -48,4 +48,4 @@ If you find this work useful, please cite the following paper:
 ## Repository layout
 - `python/` —  Offline processing (generate indices, reorder CHVs, auto-emit HDL).
 - `hardware/` — VHDL codes including: trigger index ROM, ECC decoder, CHV memory wrapper, and QHV rewiring.
-- `pics/` — figures reproduced from experiments.
+- `images/` — figures reproduced from experiments.
