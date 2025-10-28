@@ -6,25 +6,46 @@ Memory-Free Error Correction for Hyperdimensional Computing (HDC) Edge Accelerat
 
 Brain-inspired **Hyperdimensional Computing (HDC)** has gained traction as an efficient and lightweight machine learning paradigm. With advantages like **one-shot learning** and **resource efficiency**, HDC is well-suited for **edge devices** with limited computational resources.  
 
-While HDC inherently exhibits **fault tolerance**, **soft errors in associative memory** can degrade system performance—especially in **safety-critical applications** where reliability is paramount. Traditional **Error-Correcting Codes (ECC)** are commonly employed to mitigate such faults, but their **high storage overhead** poses challenges for edge deployments.  
+While HDC inherently exhibits **fault tolerance**, **soft errors in associative memory** can degrade system performance, especially in **safety-critical applications** where reliability is paramount. Traditional **Error-Correcting Codes (ECC)** are commonly employed to mitigate such faults, but their **high storage overhead** poses challenges for edge deployments.  
 
-### **Our Contribution** 
+### **Aboutr MF-ECC-HDC** 
 **MF-ECC** is a lightweight, memory-free error correction technique for HDC classifiers.  
 Instead of storing ECC check-bits in memory, we generate them **on the fly** with a tiny logic block and a compact list of **trigger indices** that mark when the check-bit value changes across dimensions. This removes check-bit memory, avoids faults in that region, and scales logarithmically with the hypervector dimension.
 
-<p align="center"><img src="images/overview.png" width="780" alt="System overview"></p>
+<p align="center"><img src="images/overall.png" alt="System overview"></p>
+---
 
-## TL;DR
-- **No ECC memory:** check-bits are generated per dimension by a counter/popcount-style **Check-Bit Generator (CBG)**; only the indices of changes are stored. (Sec. III-A/B, pp. 3–4) :contentReference[oaicite:3]{index=3}  
-- **Reorder once, reuse always:** sort dimensions by ECC codeword; reorder CHVs + rewire QHV to match; accuracy is preserved since dimension order doesn’t affect similarity. (Fig. 3, p. 3; Sec. III-B/C) :contentReference[oaicite:4]{index=4}  
-- **Tiny hardware:** ~26 LUTs and 5 regs; **0 BRAM/DSP**, **0 added latency** on PYNQ-Z2. (Table IV, p. 6) :contentReference[oaicite:5]{index=5}  
-- **Robust:** maintains accuracy under **~0.12–0.15 fault probability** before >5% drop; ≥12× better than prior art in that metric. (Table II, p. 6) :contentReference[oaicite:6]{index=6}  
-- **Scales:** memory growth **O(log₂D)** vs. baseline ECC **O(D)**. (Fig. 7, p. 6) :contentReference[oaicite:7]{index=7}
+## **Hardware Overview**  
 
+The following figure presents Memory-Free Error Correction for Hyperdimensional Computing Edge Accelerators within the HDC accelerator.  
+<p align="center"><img src="images/hardware.png" alt="System overview"></p>
 
 ---
+## **Getting Started**  
+
+To set up the framework, follow these steps:  
+
+- Clone this repository  
+- Make a new project based on [RCEHDC]((https://github.com/m-spr/RCEHDC)) 
+- I need to add them later. please contact me meanwhile if I still didn't update the repositori [email](https://github.com/m-spr/RCEHDC)
+
+
+Citation
+------------
+If you find this work useful, please cite the following paper:
+(Currently accepted and waiting for publication)
+```
+@inproceedings{roodsari2025Non,
+  title={MF-ECC: Memory-Free Error Correction for Hyperdimensional Computing Edge Accelerators},
+  author={Roodsari, Mahboobe Sadeghipour and Mayahinia, Mahta and Tahoori, Mehdi},
+  booktitle={2026 31st Asia and South Pacific Design Automation Conferenc(ASP-DAC 2026)},
+  year={2026},
+  organization={IEEE}
+}
+```
+----
 
 ## Repository layout
 - `python/` —  Offline processing (generate indices, reorder CHVs, auto-emit HDL).
-- `hardware/hdl/` — VHDL codes including: trigger index ROM, ECC decoder, CHV memory wrapper, and QHV rewiring.
-- `images/` — figures reproduced from experiments.
+- `hardware/` — VHDL codes including: trigger index ROM, ECC decoder, CHV memory wrapper, and QHV rewiring.
+- `pics/` — figures reproduced from experiments.
